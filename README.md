@@ -29,6 +29,13 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 ```
 - Add FontAwesome in the src/main.js
 
+## Splashscreen
+- Create a component splashscreen.vue
+- In splashscreen.vue some html to show as splashscreen.
+- Add some style.
+- IMPORTANT! ===> In App.vue import the Home component as an async Component with a setTimeout of 2500. The idea is to charge the component delayed.
+- Then in App.vue use <Suspense> with <template #default> and <template #fallback> to show The splashscreen till the Home component be ready.
+
 
 
 
