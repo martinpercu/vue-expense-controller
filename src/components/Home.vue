@@ -1,8 +1,13 @@
+<script setup>
+import Layout from './Layout.vue';
+import Header from './Header.vue';
+</script>
+
 <template>
-    <div>
-        Bonjour planettes
-        <font-awesome-icon :icon="['fas', 'xmark']" />
-        
-    </div>
+    <Layout>
+        <template #header>
+            <Header></Header>
+        </template>
+    </Layout>
     
 </template>
