@@ -35,8 +35,8 @@ body,
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-* {
+/* * {
   --brand-blue: #3c70ab;
   --brand-green: #70ab3c;
-}
+} */
 </style>

@@ -1,6 +1,5 @@
 # expenses-vue
 
-
 ## Starting 
 - Start a vue projects with vite.
 ```sh
@@ -41,6 +40,11 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - In Header add the template with the logo and title "CashExpenses", also add a reload() for the icon. 
 - In Layout call the template Header with class slot header.
 
+## Layout
+- Create components History.vue 
+- Create a new folder "Resume" into the components folder. (here will be the main part of the app).
+- Then In Resume folder create Index.vue. Add a template with the <main>
+- In the Layout.vue add in template 2 divs. One for the Resume and other for the History. Add divs with classes to looks fine. Of course add styles.
 
 
 
