@@ -45,7 +45,7 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - Create a new folder "Resume" into the components folder. (here will be the main part of the app).
 - Then In Resume folder create Index.vue. Add a template with the <main>
 - In the Layout.vue add in template 2 divs. One for the Resume and other for the History. Add divs with classes to looks fine. Of course add styles.
-
+- In the Layour.vue implement a onclick to show or not the history with v-show. ===> showHistory + boolean.
 
 
 
