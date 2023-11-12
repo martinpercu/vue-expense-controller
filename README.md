@@ -57,8 +57,19 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 ## Money Format, Graphic and button action.
 - In Home add 2 divs for chart + the button.
 - In Index add new varible in the template to show the currency formated.
-- Use the Intl.NumberFormat() constructor. ===> add a const to use it
+- Use the Intl.NumberFormat() constructor. ===> add a const to use it.
 - The create the new computhed method using the old visualAmount + the new const with Intl.NumberFormat.
+
+## History Component
+- Recact the History move it to new Folder History and change it as Index.vue inside History new folder. This is to have a clear order in the entire app.
+- In new Index add the template needed. A title + a v-for for the list of expenses.
+- In the script defineProps type array and default a functino returning a list. Then add toRefs to be reactive.
+- In the Home in the template call the history expense
+- In the script just create a list of expenses to use and show it.
+- Add some styles.
+- In folder history new file expense.vue. Here is the expense we will loop for in the Index. (Also is to get the app most modular as possible)
+- In the Index import this component. Add the 
+
 
 
 
