@@ -21,7 +21,20 @@ const dateChoose = "15/15/2015";
                 :date-label="dateChoose"
                 :total-amount="850000"
                 :amount="initialAmount"
-            ></Resume>
+            >
+                <template #graphic>
+                    <div>
+                        GraPHIC
+                    </div>
+                </template>
+
+                <template #action>
+                    <div>
+                        Action button
+                    </div>
+                </template>
+        
+            </Resume>
         </template>
         <template #history>
             <History></History>

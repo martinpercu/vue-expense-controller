@@ -54,6 +54,12 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - In Home create add the needed const for date-label and initial amount.
 - I left 2 sames const "initialAmount" one commented. Just to see how works the script.
 
+## Money Format, Graphic and button action.
+- In Home add 2 divs for chart + the button.
+- In Index add new varible in the template to show the currency formated.
+- Use the Intl.NumberFormat() constructor. ===> add a const to use it
+- The create the new computhed method using the old visualAmount + the new const with Intl.NumberFormat.
+
 
 
 
