@@ -79,6 +79,17 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - To change the color of the amount in the Expense template add a dynamic class ===> :class="[{  }]". 
 - Add a boolean const with computed() to know if amount is positive. Use this const in the :class="[{ 'green': isPositive, 'red': !isPositive  }]".
 
+## Add Expense Modal
+- In folder component new file Action.vue. 
+- In Action add a button with a click to change the status of showModal (true/false).
+- Then add a teleport (to the #app) ==> the MODAL itself. With v-show. This will be show or not if showModal is in true or false.
+- Then just add the const showModal with ref(false).
+- In folder component new file Modal.vue.
+- In Modal add the template with a header and a body. (the header just add title and an icon to close ===> @click="closeModal").
+- Then add the function to closeModal with an emits.
+- Then in Action listen the "closeModal" to chanche the showModal to false. This will close the modal.
+- In Action import Modal!!!. Then us it in the <teleport>. 
+
 
 
 

@@ -43,7 +43,7 @@ const isPositive = computed(() => amount.value > 0);
             <p>{{ description }}</p>
         </div>
         <div class="action">
-            <font-awesome-icon class="filterDollar" :icon="['fas', 'trash']"  @click="removeExpense" />
+            <font-awesome-icon :icon="['fas', 'trash']"  @click="removeExpense" />
             <p :class="[{ 'green': isPositive, 'red': !isPositive }]">{{ amountCurrency }}</p>
         </div>
     </div>
