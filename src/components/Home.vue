@@ -4,6 +4,7 @@ import Header from './Header.vue';
 import Resume from './Resume/Index.vue';
 import History from './History/Index.vue';
 import Action from './Action.vue';
+import Graph from './Resume/Graph.vue';
 
 const initialAmount = null;
 // const initialAmount = 548700;
@@ -50,9 +51,7 @@ const theExpenses = [{
                 :amount="initialAmount"
             >
                 <template #graphic>
-                    <div>
-                        GraPHIC
-                    </div>
+                    <Graph />
                 </template>
 
                 <template #action>

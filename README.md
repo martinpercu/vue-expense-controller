@@ -96,6 +96,11 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - Add the const in the script (title + amount + description + expenseType).
 - Add some styles.
 
+## SVG Graph
+- In folder Resume create Graph.vue. (here will be the graphic to show the expenses evolution in time)
+- In Graph add a template. Using <svg> create the example of what we need for this. On middle line (for the Zero value in money). A Polyline to show the fluctuation. and a cross line for show the position we want to see.
+- Import the component to Home
+
 
 
 
