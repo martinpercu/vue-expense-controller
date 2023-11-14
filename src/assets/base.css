@@ -53,6 +53,10 @@
 * {
   --brand-blue: #3c70ab;
   --brand-green: #70ab3c;
+  --brand-red: #e45b5b;
+  --brand-blue-light: #94bae7;
+  --brand-green-light: #96c071;
+  --brand-red-light: #de7878;
 }
 
 *,

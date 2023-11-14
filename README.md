@@ -90,7 +90,11 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - Then in Action listen the "closeModal" to chanche the showModal to false. This will close the modal.
 - In Action import Modal!!!. Then us it in the <teleport>. 
 
-
+## Expense Form
+- In Action ==> Add the form with info needed for the expense. ( title + amount + description + expenseType(income or expense).
+- Add submit. Just to close the modal. (in the future will use it to add new expense to list)
+- Add the const in the script (title + amount + description + expenseType).
+- Add some styles.
 
 
 
