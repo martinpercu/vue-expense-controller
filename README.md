@@ -114,6 +114,14 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - Important!! the html svg graph use use on top the "0" and increasing going down. This is the reason we stating getting the "abs" value and then subsctracting from the total heigh.
 - We use the same function to get the zero value to draw the gray line in the graph.
 
+## Graph touch interaction
+- The vertical line will be follow the touch. So we will replace the x1 and x2 in the Graph template (attention the 3th line, NOT the ZERO one).
+- In Graph. In the template in svg add: a v:show="lineShow" and the this 3 event: ===> "@touchstart + @touchmove + @touchend".
+- In Graph. add the logic to ose the events to show or not the line.
+- Create a const to get the position when @touchstart or @touchmove. Inside this function use console.log(target, touches) to see what returns when click. With this info continue with this funtion. ===> tapActive().
+- Add a const lineShowedPosition = ref(0); Then put this const in the 3th line in the x values. ====> :x1="lineShowedPosition" + :x2="lineShowedPosition"
+- In the function add the value getted to lineShowedPosition.
+- Is possible to make something similar using mouse click. Just add @click="tapActiveClick" in the svg and create the tapActiveClick() function similar as the tapActive().
 
 
 

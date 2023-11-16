@@ -1,5 +1,5 @@
 <script setup>
-import { toRefs , computed } from 'vue';
+import { toRefs , computed, ref } from 'vue';
 
 
 const props = defineProps({
@@ -43,13 +43,57 @@ const yZeroLine = computed(() => {
     return amountToPixels(0)
 });
 
+const showLine = ref(false)
+
+const lineShowedPosition = ref(0);
+
+const tapActive = ({ target, touches }) => {
+    showLine.value = true;
+    // console.log(target, touches); 
+    const canvaWidth = target.getBoundingClientRect().width;
+    const xPosition = target.getBoundingClientRect().x;
+    const touchInX = touches[0].clientX;
+    console.log(canvaWidth, xPosition, touchInX);
+    lineShowedPosition.value = ((touchInX - xPosition) * 330) / canvaWidth;
+}
+
+const untap = () => {
+    showLine.value = false
+}
+
+const tapActiveClick = (canvas) => {
+    showLine.value = true;
+    console.log(canvas); 
+    console.log(canvas.clientX); 
+
+    const touchInX = canvas.clientX;
+    console.log("touch in X" , touchInX); 
+
+    const canvaWidth = canvas.srcElement.clientWidth;
+    console.log("Canva width" , canvas.srcElement.clientWidth);
+
+    const viewPortWidth = visualViewport.width;
+    console.log("viewPortWidth  ==> " , viewPortWidth);
+
+    const xPosition = (visualViewport.width - canvaWidth) / 2;
+    console.log("X Position start", xPosition);
+
+    lineShowedPosition.value = ((touchInX - xPosition) * 330) / canvaWidth;
+}
+
 
 
 </script>
 
 <template>
     <div>
-        <svg viewBox="0 0 330 220">
+        <svg 
+            viewBox="0 0 330 220"
+            @touchstart="tapActive"
+            @touchmove="tapActive"
+            @touchend="untap"
+            @click="tapActiveClick"
+        >
             <line 
                 stroke="#c0c0c0" 
                 stroke-width="3"
@@ -64,12 +108,13 @@ const yZeroLine = computed(() => {
                 stroke-width="3"
                 :points="points"
             />
-            <line 
+            <line
+                v-show="showLine" 
                 stroke="green" 
                 stroke-width="2"
-                x1="240"
+                :x1="lineShowedPosition"
                 y1="0"
-                x2="240"
+                :x2="lineShowedPosition"
                 y2="220"/>
         </svg>
         <p>Last 30 days</p>
@@ -80,7 +125,8 @@ const yZeroLine = computed(() => {
 
 <style scoped>
 svg {
-  width: 100%;
+  /* width: 100%; */
+  width: 75vw;
 }
 p {
   text-align: center;
