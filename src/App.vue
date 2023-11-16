@@ -5,11 +5,11 @@ import { defineAsyncComponent } from 'vue'
 
 const Home = defineAsyncComponent(() => {
   return new Promise((resolve) => {
-    console.log('in the promise charging in 1500');
+    console.log('in the promise charging in 500');
     setTimeout(() => {
       console.log('charging now');
       resolve(import('@/components/Home.vue'))
-    }, 1500);
+    }, 500);
   })
 });
 

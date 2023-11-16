@@ -11,21 +11,37 @@ const props = defineProps({
 
 const { amounts } = toRefs(props);
 
-const amountToPixels = () => {
+const amountToPixels = (amount) => {
     const min = Math.min(...amounts.value);
     const max = Math.max(...amounts.value);
-    return `${min},${max}`
+
+    const amountAbsolute = amount + Math.abs(min);
+    const minPlusMax = Math.abs(max) + Math.abs(min);
+
+    // 110 is the totalHalf heigh ===> the "y" 
+    // We need to invert the values using "totalHeigh" minus "the logic" because coordenates in html are inverted.
+
+    const theReturn = 220 - ((amountAbsolute * 110) / minPlusMax) * 2;
+
+    return theReturn
 };
 
 
 const points = computed(() => {
     const total = amounts.value.length;
-    return Array(total).fill(110).reduce((points, amount, i) => {
-        const x = (300 / total) * (i + 1);
+    return amounts.value.reduce((points, amount, i) => {
+        // 330 is the total pixel width
+        const x = (330 / total) * (i + 1);
         const y = amountToPixels(amount);
+        console.log(y);
         return `${points} ${x},${y}`;
-    }, "0, 100");
-})
+    },"0, 100");
+});
+
+// to draw the zero value line wi get create a const yZeroLine
+const yZeroLine = computed(() => {
+    return amountToPixels(0)
+});
 
 
 
@@ -38,9 +54,9 @@ const points = computed(() => {
                 stroke="#c0c0c0" 
                 stroke-width="3"
                 x1="0"
-                y1="110"
+                :y1="yZeroLine"
                 x2="330"
-                y2="110"
+                :y2="yZeroLine"
             />
             <polyline
                 fill="none"
@@ -50,10 +66,10 @@ const points = computed(() => {
             />
             <line 
                 stroke="green" 
-                stroke-width="3"
-                x1="180"
+                stroke-width="2"
+                x1="240"
                 y1="0"
-                x2="180"
+                x2="240"
                 y2="220"/>
         </svg>
         <p>Last 30 days</p>
