@@ -101,6 +101,20 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - In Graph add a template. Using <svg> create the example of what we need for this. On middle line (for the Zero value in money). A Polyline to show the fluctuation. and a cross line for show the position we want to see.
 - Import the component to Home
 
+## Graph Amount into Pixels
+- In Graph.vue. We will change the points in the polyline to make them reactif.
+- So add the v-bind in points ====> :points="points"
+- Now we add some logic to get the values (amounts) to convert thats as coordinates for the graphics.
+- In Home ===> <Graph :amounts="amounts" /> to send the amounts to Graph also.
+- In Graph make the logic to get the amounts variable. Then add the functions needs to convert to coordinates.
+
+
+
+
+
+
+
+
 
 
 
