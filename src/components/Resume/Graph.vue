@@ -27,16 +27,30 @@ const amountToPixels = (amount) => {
 };
 
 
+// const points = computed(() => {
+//     const total = amounts.value.length;
+//     return amounts.value.reduce((points, amount, i) => {
+//         // 330 is the total pixel width
+//         const x = (330 / total) * (i + 1);
+//         const y = amountToPixels(amount);
+//         return `${points} ${x},${y}`;
+//     },"");
+// });
+
 const points = computed(() => {
-    const total = amounts.value.length;
+    const total = amounts.value.length - 1;
+    // const initialValue = 1
     return amounts.value.reduce((points, amount, i) => {
         // 330 is the total pixel width
-        const x = (330 / total) * (i + 1);
+        const x = (330 / total) * i;
+        console.log(total, i);
         const y = amountToPixels(amount);
-        console.log(y);
+        console.log("x , y  ==> ", x, y);
         return `${points} ${x},${y}`;
-    },"0, 100");
+    },"");
 });
+
+
 
 // to draw the zero value line wi get create a const yZeroLine
 const yZeroLine = computed(() => {
@@ -118,6 +132,8 @@ const tapActiveClick = (canvas) => {
                 y2="220"/>
         </svg>
         <p>Last 30 days</p>
+        <p>{{ amounts }}</p>
+        <p>{{ points  }}</p>
     </div>
 </template>
 

@@ -10,11 +10,15 @@ const initialAmount = null;
 // const initialAmount = 548700;
 const dateChoose = "15/15/2015";
 
-const amounts = [40, 220, 150, -48, -150, 450, 40];
+// const amounts = [40, 220, 150, -48, -150, 450, 40];
 // const amounts = [40, 220, 150, -48, -150, 20];
 // const amounts = [10, -5, 12, -20];
 // const amounts = [10, 0, 12, -20, 15, 20];
 // const amounts = [10, -20];
+// const amounts = [1, -1, 1, 0];
+// const amounts = [1, -1, 1, 0, 0, 1, 0];
+const amounts = [0, -1, 1, 0, 0.5];
+
 
 
 
