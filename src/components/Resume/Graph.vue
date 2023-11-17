@@ -27,15 +27,6 @@ const amountToPixels = (amount) => {
 };
 
 
-// const points = computed(() => {
-//     const total = amounts.value.length;
-//     return amounts.value.reduce((points, amount, i) => {
-//         // 330 is the total pixel width
-//         const x = (330 / total) * (i + 1);
-//         const y = amountToPixels(amount);
-//         return `${points} ${x},${y}`;
-//     },"");
-// });
 
 const points = computed(() => {
     const total = amounts.value.length - 1;
@@ -133,7 +124,7 @@ const tapActiveClick = (canvas) => {
         </svg>
         <p>Last 30 days</p>
         <p>{{ amounts }}</p>
-        <p>{{ points  }}</p>
+        <!-- <p>{{ points  }}</p> -->
     </div>
 </template>
 
