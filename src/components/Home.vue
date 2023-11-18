@@ -19,44 +19,8 @@ export default {
     return {
       label: null,
       initialAmount: null,
-      theExpenses: [
-        {
-          id: 0,
-          title: 'expense N°1',
-          description: 'loren etc etc qsdflikje bla bla',
-          amount: 120,
-          time: new Date('10-25-2023')
-        },
-        {
-          id: 1,
-          title: 'expense N°2',
-          description: 'loren etc etc qsdflikje bla bla',
-          amount: -75,
-          time: new Date('11-14-2023')
-        },
-        {
-          id: 2,
-          title: 'expense N°3',
-          description: 'loren etc etc qsdflikje bla bla',
-          amount: -50,
-          time: new Date('09-14-2023')
-        },
-        {
-          id: 3,
-          title: 'expense N°4',
-          description: 'loren etc etc qsdflikje bla bla',
-          amount: 55,
-          time: new Date('11-14-2023')
-        },
-        {
-          id: 4,
-          title: 'expense N°5',
-          description: 'loren etc etc qsdflikje bla bla',
-          amount: -80,
-          time: new Date('11-14-2023')
-        }
-      ]
-    }
+      theExpenses: []
+    };
   },
   computed: {
     amounts() {
@@ -78,15 +42,34 @@ export default {
           return addition + expense
         }, 0)
       })
+    },
+    totalAmount() {
+      return this.theExpenses.reduce((addition, expense) => {
+        return addition + expense.amount
+      }, 0)
     }
   },
+  mounted() { 
+    const theExpensesInLocal = JSON.parse(localStorage.getItem("theExpensesInLocal"));
+    if (Array.isArray(theExpensesInLocal)) {
+      this.theExpenses = theExpensesInLocal?.map(e => {      
+        return { ...e, time: new Date(e.time) }
+      });
+    }
+    
+  },
   methods: {
-    createExpense(movement) {
-      this.theExpenses.push(movement)
+    createExpense(expense) {
+      this.theExpenses.push(expense);
+      this.updateTheExpenses();
     },
     removeThisFromExpenses(id) {
-      const index = this.theExpenses.findIndex((m) => m.id === id)
-      this.theExpenses.splice(index, 1)
+      const index = this.theExpenses.findIndex((m) => m.id === id);
+      this.theExpenses.splice(index, 1);
+      this.updateTheExpenses();
+    },
+    updateTheExpenses() {
+      localStorage.setItem("theExpensesInLocal", JSON.stringify(this.theExpenses))
     }
   }
 }
@@ -101,7 +84,7 @@ export default {
       <Resume
         :label="'Total Savings'"
         :date-label="dateChoose"
-        :total-amount="850000"
+        :total-amount="totalAmount"
         :amount="initialAmount"
       >
         <template #graphic>
