@@ -70,6 +70,13 @@ export default {
     },
     updateTheExpenses() {
       localStorage.setItem("theExpensesInLocal", JSON.stringify(this.theExpenses))
+    },
+    selector(amountFromGraph) {
+      console.log("selector ===>  ", amountFromGraph);
+      this.initialAmount = amountFromGraph;
+    },
+    returnZero() {
+      this.initialAmount = null;
     }
   }
 }
@@ -88,7 +95,11 @@ export default {
         :amount="initialAmount"
       >
         <template #graphic>
-          <Graph :amounts="amounts" />
+          <Graph 
+            :amounts="amounts"
+            @selector="selector"
+            @returnZero="returnZero"
+          />
         </template>
 
         <template #action>

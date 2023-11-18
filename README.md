@@ -146,10 +146,16 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - Now to get "theExpenses" in Home.vue just before methods add mounted() (this if from the lifecycle of vue) to get the "theExpenses" saved in the localStorage.
 - IMPORTANT!! to save in the localStorage is important to use JSON.stringify and JSON.parse to be sure we are getting the same as we save.
 - IMPORTANT!! to recover the time with Date format be sure to make map and add time: the "new Date" format.
-- IMPORTANT!! also if the "theEpenses" comes empty the "map" should be conditional. Just add "?"
+- IMPORTANT!! also if the "theExpenses" comes empty the "map" should be conditional. Just add "?"
 - Now when we add an expense or income will be reflected everywhere. So now we need to clean the modal. Till now is always showing the last valued added. So in Action in the submit after the emit just add the initial values.
 - We will get a the correct FULL AMOUNT to show it. In Home just add a const totalAmount in the template and get ths value adding all amounts. Use a totalAmount() to get this value.
 
+## Graph get Position
+- We will find the exact coordenates, then we rounded to matched like an index, then we get the element amount we need to know. 
+- In Graph add a watch to match the position with amount to get index to know whats amount sent to Home.
+- Implement 2 emits. One to send the amount getting with the whacher ==> "selector" and another to reset the initialAmount allowing to show "totalAmount" ===> "returnZero".
+- Add the "selector" emit inside the watcher and the "returnZero" emit in the untap function.
+- In Home add the @selector="selector" @returnZero="returnZero" in <Graph> . Only need to add the 2 fonctinons. selector() and the returnZero().
 
 
 
