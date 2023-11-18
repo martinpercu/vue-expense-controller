@@ -5,13 +5,24 @@ import Modal from "./Modal.vue"
 const showModal = ref(false)
 
 const title = ref("");
-const amount = ref("");
+const amount = ref(0);
 const description = ref("");
 const expenseType = ref("expense");
 
+
+const emit = defineEmits(["sendNewExpense"]);
+
 const submit = () => {
     showModal.value = !showModal.value;
+    emit("sendNewExpense", {
+        id: 654,
+        title: title.value,
+        description: description.value,
+        amount: expenseType.value === "income" ? amount.value : -amount.value,
+        time: new Date(),
+    });
 }
+
 
 </script>
 

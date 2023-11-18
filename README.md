@@ -87,7 +87,7 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - In folder component new file Modal.vue.
 - In Modal add the template with a header and a body. (the header just add title and an icon to close ===> @click="closeModal").
 - Then add the function to closeModal with an emits.
-- Then in Action listen the "closeModal" to chanche the showModal to false. This will close the modal.
+- Then in Action listen the "closeModal" to change the showModal to false. This will close the modal.
 - In Action import Modal!!!. Then us it in the <teleport>. 
 
 ## Expense Form
@@ -129,7 +129,14 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - So const amounts using a computed() ===> first get an array of amount from theExpenses. ===> last30DaysExpenses
 - Then use slice the last30DaysExpenses and using reduce() return the array wantend.
 
-
+## Data Add Remove
+- In Home tranform the script setup to script. (this for me is easy for the rest of reactivity needs).
+- In Action.vue define emit "sendNewExpense"
+- Add this event inside the submit.
+- This sendNewExpense add all the object of an "expense" . 
+- Important the amount should decide if is positive or negative depending if is income or expense.
+- In Home in the template add in tag Action ===> @sendNewExpense="createExpese"
+- Add Function createExpese() to add the new expense in the Expenses
 
 
 

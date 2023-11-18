@@ -6,6 +6,7 @@ const currencyFormat = new Intl.NumberFormat('fr-FR', {
 
 
 import { toRefs, computed } from 'vue';
+
 const props = defineProps({
     id: {
         type: Number
@@ -27,12 +28,12 @@ const amountCurrency = computed(() => currencyFormat.format(amount.value));
 
 const emit = defineEmits(["removeExpense"]);
 
+const isPositive = computed(() => amount.value > 0);
+
 const removeExpense = () => {
     emit("removeThisExpense", id.value);
     console.log(id.value);
 }
-
-const isPositive = computed(() => amount.value > 0);
 
 </script>
 
