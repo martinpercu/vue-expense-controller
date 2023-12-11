@@ -42,8 +42,9 @@ const showHistory = ref(false)
   position: absolute;
   flex-direction: column;
   bottom: 0;
-  width: 100vw;
-  background-color: white;
+  left: 1vw;
+  width: 98vw;
+  background-color: #f8f8f8;
   box-shadow: 0 -8px 16px #c4c4c4;
   border-radius: 20px 20px 0 0;
 }
@@ -53,6 +54,7 @@ const showHistory = ref(false)
   justify-content: center;
   align-items: center;
   padding: 24px;
+  padding: 10px;
   width: 100%;
   box-sizing: border-box;
 }

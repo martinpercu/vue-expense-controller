@@ -15,7 +15,7 @@ const emit = defineEmits(["sendNewExpense"]);
 const submit = () => {
     showModal.value = !showModal.value;
     emit("sendNewExpense", {
-        id: 654,
+        id: new Date(),
         title: title.value,
         description: description.value,
         amount: expenseType.value === "income" ? amount.value : -amount.value,

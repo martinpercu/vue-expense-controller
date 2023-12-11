@@ -65,8 +65,10 @@ export default {
     },
     removeThisFromExpenses(id) {
       const index = this.theExpenses.findIndex((m) => m.id === id);
+      console.log(this.theExpenses);
       this.theExpenses.splice(index, 1);
       this.updateTheExpenses();
+      console.log("IN HOME this is id ====> ", id);
     },
     updateTheExpenses() {
       localStorage.setItem("theExpensesInLocal", JSON.stringify(this.theExpenses))

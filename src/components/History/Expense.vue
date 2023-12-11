@@ -32,7 +32,7 @@ const isPositive = computed(() => amount.value > 0);
 
 const removeExpense = () => {
     emit("removeThisExpense", id.value);
-    console.log(id.value);
+    console.log("this is id value ==> " + id.value);
 }
 
 </script>

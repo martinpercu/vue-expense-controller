@@ -101,7 +101,7 @@ const tapActiveClick = (canvas) => {
 </script>
 
 <template>
-    <div>
+    <div class="canvas">
         <svg 
             viewBox="0 0 330 220"
             @touchstart="tapActive"
@@ -132,8 +132,8 @@ const tapActiveClick = (canvas) => {
                 :x2="lineShowedPosition"
                 y2="220"/>
         </svg>
-        <p>Last 30 days</p>
-        <p>{{ amounts }}</p>
+        <!-- <p>Last 30 days</p>
+        <p>{{ amounts }}</p> -->
         <!-- <p>{{ points  }}</p> -->
     </div>
 </template>
@@ -147,5 +147,9 @@ svg {
 }
 p {
   text-align: center;
+}
+
+.canvas {
+    border: 1px dotted var(--brand-green);
 }
 </style>
