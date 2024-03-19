@@ -36,7 +36,10 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - IMPORTANT! ===> In App.vue import the Home component as an async Component with a setTimeout of 2500. The idea is to charge the component delayed.
 - Then in App.vue use <Suspense> with <template #default> and <template #fallback> to show The splashscreen till the Home component be ready.
 
-
+## Header and Content
+- Create components Header.vue and Layout.vue (the layout will be for the content).
+- In Header add the template with the logo and title "CashExpenses", also add a reload() for the icon. 
+- In Layout call the template Header with class slot header.
 
 
 
