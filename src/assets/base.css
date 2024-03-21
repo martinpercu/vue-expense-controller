@@ -50,7 +50,14 @@
   }
 }
 
+* {
+  --brand-blue: #3c70ab;
+  --brand-green: #70ab3c;
+}
+
 *,
+
+
 *::before,
 *::after {
   box-sizing: border-box;
