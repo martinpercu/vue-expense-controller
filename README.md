@@ -47,6 +47,14 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - In the Layout.vue add in template 2 divs. One for the Resume and other for the History. Add divs with classes to looks fine. Of course add styles.
 - In the Layour.vue implement a onclick to show or not the history with v-show. ===> showHistory + boolean.
 
+## Resume
+- In Index.vue add 4 props 2 for label + 2 for amount. Also add 2 computed funtions (visualAmount() and visualLabel()) for this label and amount will be show in the template.
+- Add in the template {{ visualAmount }} and {{ visualLabel }}.
+- In Home send the 4 binding. ===>  label + date-label + amount + total-amount.
+- In Home create add the needed const for date-label and initial amount.
+- I left 2 sames const "initialAmount" one commented. Just to see how works the script.
+
+
 
 
 
