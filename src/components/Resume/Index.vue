@@ -1,4 +1,8 @@
 <script>
+const currencyFormat = new Intl.NumberFormat('fr-FR', {
+    currency: "EUR",
+    style: "currency",
+})
 export default {
     props: {
         label: {
@@ -25,14 +29,23 @@ export default {
             } else {
                 return this.label
             }
-        },       
+        },
+        visualAmountCurrency() {
+            return currencyFormat.format(this.visualAmount)         
+        }       
     }    
 }
 </script>
 <template>
     <main>
         <p>{{ visualLabel }}</p>
-        <h1>{{ visualAmount }}</h1>
+        <h1>{{ visualAmountCurrency }}</h1>
+        <div class="graphic">
+            <slot name="graphic"></slot>
+        </div>
+        <div class="action">
+            <slot name="action"></slot>
+        </div>
     </main>
 </template>
 
