@@ -18,7 +18,7 @@ const theExpenses = [{
     id: 1,
     title: "expense N°2",
     description: "loren etc etc qsdflikje bla bla",
-    amount: 252
+    amount: -252
     },
     {
     id: 2,

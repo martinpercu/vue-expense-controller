@@ -70,6 +70,14 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - In folder history new file expense.vue. Here is the expense we will loop for in the Index. (Also is to get the app most modular as possible)
 - In the Index import this component. Add the 
 
+## History List
+- In Index (history folder) improve the "Expense" component with "id description amount title".
+- In Expense add this in the defineProps. Obviously ;)
+- In Expense template add format to show description title amount + a trash button (show the id of the element ===> to delete it in the future.)
+- In the Expense to use the trash defineEmit removeExpense(). 
+- To receive this event in the Index template add ===> @removeThisExpense="removeThis". With this we get the ID of the expense to delete it.
+- To change the color of the amount in the Expense template add a dynamic class ===> :class="[{  }]". 
+- Add a boolean const with computed() to know if amount is positive. Use this const in the :class="[{ 'green': isPositive, 'red': !isPositive  }]".
 
 
 

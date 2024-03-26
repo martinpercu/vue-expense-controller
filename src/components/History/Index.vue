@@ -10,6 +10,10 @@ const props = defineProps({
 
 const { expenses } = toRefs(props);
 
+const removeThis = (id) => {
+  console.log("remove", id);
+};
+
 </script>
 
 <template>
@@ -17,9 +21,14 @@ const { expenses } = toRefs(props);
         <h2 class="title">History</h2>
         <div class="content">
             <Expense 
-                v-for="expense in expenses" 
-                :key="expense.id"
-                :title="expense.title">    
+                v-for="{ id, title, description, amount } in expenses" 
+                :key="id"
+                :id="id"
+                :title="title"
+                :description="description"
+                :amount="amount"
+                @removeThisExpense="removeThis"
+              >    
             </Expense>
         </div>   
     </div>
