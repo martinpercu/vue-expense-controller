@@ -3,6 +3,7 @@ import Layout from './Layout.vue';
 import Header from './Header.vue';
 import Resume from './Resume/Index.vue';
 import History from './History/Index.vue';
+import Action from './Action.vue';
 
 const initialAmount = null;
 // const initialAmount = 548700;
@@ -55,9 +56,7 @@ const theExpenses = [{
                 </template>
 
                 <template #action>
-                    <div>
-                        Action button
-                    </div>
+                    <Action></Action>
                 </template>
         
             </Resume>
