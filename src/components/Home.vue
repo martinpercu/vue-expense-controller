@@ -10,6 +10,14 @@ const initialAmount = null;
 // const initialAmount = 548700;
 const dateChoose = "15/15/2015";
 
+// const amounts: [40, 220, 150, -48, -150, 450, 20];
+
+// const amounts = [10, 8, 40, 50, 60, -5, 12, -20];
+// const amounts = [10, 12, -20];
+const amounts = [10, -5, 12, -20];
+
+
+
 const theExpenses = [{
     id: 0,
     title: "expense N°1",
@@ -51,7 +59,7 @@ const theExpenses = [{
                 :amount="initialAmount"
             >
                 <template #graphic>
-                    <Graph />
+                    <Graph :amounts="amounts" />
                 </template>
 
                 <template #action>
