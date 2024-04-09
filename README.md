@@ -108,6 +108,13 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - In Home ===> <Graph :amounts="amounts" /> to send the amounts to Graph also.
 - In Graph make the logic to get the amounts variable. Then add the functions needs to convert to coordinates.
 
+## Graph Logic
+- In the Graph we improve the funtions already had.
+- The amountToPixels() ===> with this we send the "position heigh" of each amount.
+- Important!! the html svg graph use use on top the "0" and increasing going down. This is the reason we stating getting the "abs" value and then subsctracting from the total heigh.
+- We use the same function to get the zero value to draw the gray line in the graph.
+
+
 
 
 
