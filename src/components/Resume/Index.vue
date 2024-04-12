@@ -74,7 +74,8 @@ h1 {
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 48px 24px;
+  /* VERY IMPORTANT don't use padding left or right in .graphic ===> Problem with calculation in Graph */
+  padding: 48px 0px; 
   box-sizing: border-box;
 }
 </style>

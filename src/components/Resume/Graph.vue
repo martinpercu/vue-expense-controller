@@ -1,5 +1,5 @@
 <script setup>
-import { toRefs , computed } from 'vue';
+import { toRefs , computed, ref } from 'vue';
 
 
 const props = defineProps({
@@ -27,21 +27,73 @@ const amountToPixels = (amount) => {
 };
 
 
+// const points = computed(() => {
+//     const total = amounts.value.length;
+//     return amounts.value.reduce((points, amount, i) => {
+//         // 330 is the total pixel width
+//         const x = (330 / total) * (i + 1);
+//         const y = amountToPixels(amount);
+//         return `${points} ${x},${y}`;
+//     },"");
+// });
+
 const points = computed(() => {
-    const total = amounts.value.length;
+    const total = amounts.value.length - 1;
+    // const initialValue = 1
     return amounts.value.reduce((points, amount, i) => {
         // 330 is the total pixel width
-        const x = (330 / total) * (i + 1);
+        const x = (330 / total) * i;
+        console.log(total, i);
         const y = amountToPixels(amount);
-        console.log(y);
+        console.log("x , y  ==> ", x, y);
         return `${points} ${x},${y}`;
-    },"0, 100");
+    },"");
 });
+
+
 
 // to draw the zero value line wi get create a const yZeroLine
 const yZeroLine = computed(() => {
     return amountToPixels(0)
 });
+
+const showLine = ref(false)
+
+const lineShowedPosition = ref(0);
+
+const tapActive = ({ target, touches }) => {
+    showLine.value = true;
+    // console.log(target, touches); 
+    const canvaWidth = target.getBoundingClientRect().width;
+    const xPosition = target.getBoundingClientRect().x;
+    const touchInX = touches[0].clientX;
+    console.log(canvaWidth, xPosition, touchInX);
+    lineShowedPosition.value = ((touchInX - xPosition) * 330) / canvaWidth;
+}
+
+const untap = () => {
+    showLine.value = false
+}
+
+const tapActiveClick = (canvas) => {
+    showLine.value = true;
+    console.log(canvas); 
+    console.log(canvas.clientX); 
+
+    const touchInX = canvas.clientX;
+    console.log("touch in X" , touchInX); 
+
+    const canvaWidth = canvas.srcElement.clientWidth;
+    console.log("Canva width" , canvas.srcElement.clientWidth);
+
+    const viewPortWidth = visualViewport.width;
+    console.log("viewPortWidth  ==> " , viewPortWidth);
+
+    const xPosition = (visualViewport.width - canvaWidth) / 2;
+    console.log("X Position start", xPosition);
+
+    lineShowedPosition.value = ((touchInX - xPosition) * 330) / canvaWidth;
+}
 
 
 
@@ -49,7 +101,13 @@ const yZeroLine = computed(() => {
 
 <template>
     <div>
-        <svg viewBox="0 0 330 220">
+        <svg 
+            viewBox="0 0 330 220"
+            @touchstart="tapActive"
+            @touchmove="tapActive"
+            @touchend="untap"
+            @click="tapActiveClick"
+        >
             <line 
                 stroke="#c0c0c0" 
                 stroke-width="3"
@@ -64,15 +122,18 @@ const yZeroLine = computed(() => {
                 stroke-width="3"
                 :points="points"
             />
-            <line 
+            <line
+                v-show="showLine" 
                 stroke="green" 
                 stroke-width="2"
-                x1="240"
+                :x1="lineShowedPosition"
                 y1="0"
-                x2="240"
+                :x2="lineShowedPosition"
                 y2="220"/>
         </svg>
         <p>Last 30 days</p>
+        <p>{{ amounts }}</p>
+        <p>{{ points  }}</p>
     </div>
 </template>
 
@@ -80,7 +141,8 @@ const yZeroLine = computed(() => {
 
 <style scoped>
 svg {
-  width: 100%;
+  /* width: 100%; */
+  width: 75vw;
 }
 p {
   text-align: center;
