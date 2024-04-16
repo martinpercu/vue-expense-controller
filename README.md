@@ -123,6 +123,12 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - In the function add the value getted to lineShowedPosition.
 - Is possible to make something similar using mouse click. Just add @click="tapActiveClick" in the svg and create the tapActiveClick() function similar as the tapActive().
 
+## Data Model
+- In Home add amount to the "theExpenses" add amounts values + time (the moment user add the expense).
+- Now the amounts should be the relation between each expense in order. Example if first expense is 50 and the secon expense is 12 the 2nd amounts shoud be 62. This will give us the good coordinates.
+- So const amounts using a computed() ===> first get an array of amount from theExpenses. ===> last30DaysExpenses
+- Then use slice the last30DaysExpenses and using reduce() return the array wantend.
+
 
 
 
