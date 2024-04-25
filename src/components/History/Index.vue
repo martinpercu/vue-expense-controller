@@ -1,17 +1,21 @@
 <script setup>
 import { toRefs } from 'vue';
-import Expense from './expense.vue';
+import Expense from './Expense.vue';
+
 const props = defineProps({
-    expenses: {
+  theExpenses: {
         type: Array,
-        default: () => []
+        default: () => [],
     }
 });
 
-const { expenses } = toRefs(props);
+const { theExpenses } = toRefs(props);
+
+const emit = defineEmits(["removeThisExpense"]);
 
 const removeThis = (id) => {
   console.log("remove", id);
+  emit("removeThisExpense", id);
 };
 
 </script>
@@ -21,15 +25,14 @@ const removeThis = (id) => {
         <h2 class="title">History</h2>
         <div class="content">
             <Expense 
-                v-for="{ id, title, description, amount } in expenses" 
+                v-for="{ id, title, description, amount } in theExpenses" 
                 :key="id"
                 :id="id"
                 :title="title"
                 :description="description"
                 :amount="amount"
                 @removeThisExpense="removeThis"
-              >    
-            </Expense>
+              />
         </div>   
     </div>
 </template>
