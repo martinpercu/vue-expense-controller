@@ -30,7 +30,6 @@ const amountToPixels = (amount) => {
 
 const points = computed(() => {
     const total = amounts.value.length - 1;
-    // const initialValue = 1
     return amounts.value.reduce((points, amount, i) => {
         // 330 is the total pixel width
         const x = (330 / total) * i;

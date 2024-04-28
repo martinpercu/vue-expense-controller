@@ -21,6 +21,10 @@ const submit = () => {
         amount: expenseType.value === "income" ? amount.value : -amount.value,
         time: new Date(),
     });
+    title.value = ""
+    amount.value = 0;
+    description.value = "";
+    expenseType.value = "expense";    
 }
 
 

@@ -138,6 +138,19 @@ npm i --save @fortawesome/vue-fontawesome@latest-3
 - In Home in the template add in tag Action ===> @sendNewExpense="createExpese"
 - Add Function createExpese() to add the new expense in the Expenses
 
+## Data Persistence
+- We will use the localstorage to save the history of expenses.
+- In Home.vue chanche the theExpenses for an empty list.
+- In methods add updateTheExpenses() to save it in the localstorage.
+- In createExpense() and in removeThisFromExpenses() call the new updateTheExpenses().
+- Now to get "theExpenses" in Home.vue just before methods add mounted() (this if from the lifecycle of vue) to get the "theExpenses" saved in the localStorage.
+- IMPORTANT!! to save in the localStorage is important to use JSON.stringify and JSON.parse to be sure we are getting the same as we save.
+- IMPORTANT!! to recover the time with Date format be sure to make map and add time: the "new Date" format.
+- IMPORTANT!! also if the "theEpenses" comes empty the "map" should be conditional. Just add "?"
+- Now when we add an expense or income will be reflected everywhere. So now we need to clean the modal. Till now is always showing the last valued added. So in Action in the submit after the emit just add the initial values.
+- We will get a the correct FULL AMOUNT to show it. In Home just add a const totalAmount in the template and get ths value adding all amounts. Use a totalAmount() to get this value.
+
+
 
 
 
