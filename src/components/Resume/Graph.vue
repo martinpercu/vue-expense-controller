@@ -1,5 +1,5 @@
 <script setup>
-import { toRefs , computed, ref } from 'vue';
+import { toRefs , computed, ref, watch } from 'vue';
 
 
 const props = defineProps({
@@ -51,18 +51,29 @@ const showLine = ref(false)
 
 const lineShowedPosition = ref(0);
 
+const emit = defineEmits(["selector", "returnZero"])
+
+watch(lineShowedPosition, (value) => {
+    const index = Math.ceil(value / (330 / (amounts.value.length - 1)));
+    // if (index < 0 || index >= amounts.value.length) return;
+    const theSelectedAmount = amounts.value[index - 1]
+    emit("selector", theSelectedAmount);
+});
+
+
 const tapActive = ({ target, touches }) => {
     showLine.value = true;
     // console.log(target, touches); 
     const canvaWidth = target.getBoundingClientRect().width;
     const xPosition = target.getBoundingClientRect().x;
     const touchInX = touches[0].clientX;
-    console.log(canvaWidth, xPosition, touchInX);
+    // console.log(canvaWidth, xPosition, touchInX);
     lineShowedPosition.value = ((touchInX - xPosition) * 330) / canvaWidth;
 }
 
 const untap = () => {
     showLine.value = false
+    emit("returnZero")
 }
 
 const tapActiveClick = (canvas) => {
