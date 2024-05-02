@@ -15,7 +15,7 @@ const emit = defineEmits(["sendNewExpense"]);
 const submit = () => {
     showModal.value = !showModal.value;
     emit("sendNewExpense", {
-        id: 654,
+        id: new Date(),
         title: title.value,
         description: description.value,
         amount: expenseType.value === "income" ? amount.value : -amount.value,
@@ -109,8 +109,8 @@ label {
 input,
 textarea {
     font-size: 1.24rem;
-    border: 2px solid var(--brand-blue-light);
-    border-radius: 8px;
+    border: 1px solid var(--brand-blue-light);
+    border-radius: 12px;
     padding: 8px;
 }
 
@@ -120,7 +120,7 @@ textarea {
 
 
 input[type="number"] {
-    text-align: right;
+    text-align: center;
 }
 
 .radio-label {
@@ -133,7 +133,7 @@ input[type="number"] {
 .radio-label span {
     margin-top: 4px;
     margin-left: 8px;
-    color: var(--brand-blue);
+    /* color: var(--brand-blue); */
 }
 
 input[type="radio"] {

@@ -51,12 +51,19 @@
 }
 
 * {
-  --brand-blue: #3c70ab;
+  /* --brand-blue: #3c70ab;
   --brand-green: #70ab3c;
   --brand-red: #e45b5b;
   --brand-blue-light: #9ebfe6;
   --brand-green-light: #9cbf7d;
+  --brand-red-light: #de8282; */
+  --brand-blue: #c328b1;
+  --brand-green: #2bca95;
+  --brand-red: #e33b3b;
+  --brand-blue-light: #c080b8;
+  --brand-green-light: #75ceb0;
   --brand-red-light: #de8282;
+
 }
 
 *,

@@ -76,6 +76,8 @@ h1 {
   width: 100%;
   /* VERY IMPORTANT don't use padding left or right in .graphic ===> Problem with calculation in Graph */
   padding: 48px 0px; 
+  padding-top: 40px;
+  padding-bottom: 24px;
   box-sizing: border-box;
 }
 </style>
