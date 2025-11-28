@@ -1,4 +1,35 @@
-# expenses-vue
+# 💰 expenses-vue: Reactive Expense Tracking Application
+
+This repository contains a modern single-page application (SPA) built with **Vue 3** and **Vite**, designed to track personal cash expenses and income. It showcases advanced Vue patterns, including reactivity, component communication, complex state management, and interaction with native browser APIs.
+
+## 🛠️ Core Technologies and Setup
+
+* **Framework:** Vue 3 (Composition API).
+* **Build Tool:** Vite.
+* **Styling & Icons:** Integration of **Font Awesome**.
+* **Structure:** Utilizes a modular component organization (e.g., dedicated folders for `Resume` and `History`).
+
+## ✨ Advanced Vue Patterns
+
+* **Asynchronous Loading (Suspense):** Implements a **Splashscreen** by loading the main `Home` component asynchronously and using the `<Suspense>` component to display a fallback screen during the delay.
+* **Component Communication:** Uses the **`defineEmits`** and **`@event`** pattern for communication (e.g., removing an expense from a list).
+* **Modals:** Uses the **`<Teleport>`** component to render the `Modal` outside the regular component hierarchy (e.g., directly to `#app`), ensuring correct stacking.
+* **Reactive Data:** Leverages `ref()` and `computed()` properties extensively for dynamic data display and formatting (e.g., currency formatting with `Intl.NumberFormat`).
+
+## 📈 Data Visualization and Interactivity
+
+* **Graph Component:** Creates a custom SVG-based `Graph.vue` to visualize expense fluctuation over time.
+    * **Coordinate Conversion:** Implements logic to convert dynamic financial amounts into SVG coordinate points (pixels) for plotting.
+    * **Touch/Mouse Interaction:** Uses `@touchstart`, `@touchmove`, and `@click` events on the SVG to display a vertical selector line and communicate the selected amount back to the parent component.
+* **Data Model:** Maintains a computed running balance of expenses, crucial for accurate graph plotting.
+
+## 💾 Data Persistence
+
+* **Local Storage:** Implements persistence using `localStorage` to save the expense history across sessions.
+* **Lifecycle Hooks:** Uses the `mounted()` hook to retrieve and parse expense data, and custom methods to save the state after every creation or removal of an expense.
+
+---------
+---------
 
 ## Starting 
 - Start a vue projects with vite.
